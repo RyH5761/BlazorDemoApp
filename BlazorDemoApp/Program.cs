@@ -1,9 +1,11 @@
 using BlazorDemoApp.Components;
 using BlazorDemoApp.Components.Account;
 using BlazorDemoApp.Data;
+using BlazorDemoApp.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,20 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
+var jsonPath = Path.Combine(builder.Environment.WebRootPath, "data", "global.json");
+
+if (File.Exists(jsonPath))
+{
+    var json = File.ReadAllText(jsonPath);
+    var commonText = JsonSerializer.Deserialize<Global>(json) ?? new Global();
+    builder.Services.AddSingleton(commonText);
+}
+else
+{
+    builder.Services.AddSingleton(new Global());
+}
+
 
 var app = builder.Build();
 
