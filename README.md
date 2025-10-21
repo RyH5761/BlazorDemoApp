@@ -2,5 +2,6 @@
 0.Blazor 웹앱 프로젝트 .Net 8.0 기반  서버 프로젝트 생성 <br />
 1.https://startbootstrap.com/ Moden Modern Busines Template 다운로드 및 wwwroot 적용 <br />
 2.Moden Modern Busines Template html 파일 BlazorDemoApp 프로젝트에 적용 및 삭제처리 <br />
-3.데모프로젝트 Home 페이지에 대한 이미지 및 내용 추가, 공통요소는 json파일에 저장 및 연동 코드 추가 <br />
-4.
+3.Home 페이지에 대한 이미지 및 간략 내용 추가, 공통요소는 json파일에 저장 및 연동 코드 추가 <br />
+4.About 페이지에 대한 이미지 및 간략 내용 추가 <br />
+5.
