@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="Components\Layout\NavMenu.razor.css" />
+    <None Remove="README.md" />
   </ItemGroup>
 
   <ItemGroup>
