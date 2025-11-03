@@ -1,0 +1,356 @@
+﻿/* ============================================================
+   🎨 SB Admin 2 - Custom Overrides for Blazor
+   ------------------------------------------------------------
+   이 파일은 sb-admin-2.min.css 아래에서 로드되어야 합니다.
+   색상, 카드, 버튼, 레이아웃 등 간단한 테마 수정용.
+   ============================================================ */
+
+/* 🩵 공통 테마 색상 재정의 ----------------------------------- */
+:root {
+    --primary: #4e73df;
+    --secondary: #858796;
+    --success: #1cc88a;
+    --info: #36b9cc;
+    --warning: #f6c23e;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --dark: #5a5c69;
+    /* 🩵 보조 색상 (부드러운 계열) */
+    --primary-light: #cfd9fa;
+    --secondary-light: #e1e3ea;
+    --success-light: #c3f2e1;
+    --info-light: #c9edf3;
+    --warning-light: #fdf3d5;
+    --danger-light: #f9d3cf;
+    --dark-light: #b7b9cc;
+    /* 🖤 어두운 계열 (hover, focus용) */
+    --primary-dark: #3755d0;
+    --secondary-dark: #6c757d;
+    --success-dark: #17a673;
+    --info-dark: #2c9faf;
+    --warning-dark: #d39e00;
+    --danger-dark: #be2617;
+    --dark-darker: #3a3b45;
+    /* 🌈 배경 계열 */
+    --background: #f8f9fc;
+    --background-alt: #e9ecef;
+    --card-bg: #ffffff;
+    /* ✨ 기타 UI용 */
+    --border-color: #e3e6f0;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --muted-text: #858796;
+    --header-text: #4e73df;
+}
+
+/* 텍스트/링크 색상 보정 ----------------------------------- */
+a {
+    color: var(--primary);
+}
+
+    a:hover {
+        filter: brightness(0.9);
+    }
+
+/* Sidebar / Navbar 색상 조정 ------------------------------- */
+.sidebar {
+    background: var(--dark);
+}
+
+.topbar {
+    background: var(--light);
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+
+
+/* ------------------------------------------------------------
+   💬 링크/버튼 색상
+------------------------------------------------------------ */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    filter: brightness(0.9);
+}
+
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    filter: brightness(0.9);
+}
+
+/* Bootstrap 변수 기반 컴포넌트 */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    filter: brightness(0.92);
+}
+
+.collapse {
+    display: none !important;
+    transition: height 0.35s ease;
+}
+
+.collapse.show {
+    display: block !important;
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+
+/* 카드 설정 --------------------------------------------------- */
+.card {
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.35rem 0.75rem rgba(0,0,0,0.15);
+}
+
+/* 카드 헤더 */
+.card-header {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--light);
+    position: relative;
+    z-index: 3;
+}
+
+/* 카드 본문 */
+.card-body {
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ------------------------------------------------------------
+   Dropdown 카드
+------------------------------------------------------------ */
+.card.has-dropdown .card-body {
+    position: static !important;
+    overflow: visible;
+}
+
+.card .dropdown-panel {
+    z-index: 9999;
+    animation: dropdown-fade 0.15s ease-out;
+}
+@keyframes dropdown-fade {
+    from {opacity: 0;transform: translateY(-4px);}
+    to {opacity: 1;transform: translateY(0);}
+}
+/* ------------------------------------------------------------
+   Collapse 카드
+   - 클릭 시 내용이 부드럽게 접히거나 펼쳐짐
+------------------------------------------------------------ */
+.card.has-collapse {
+    overflow: hidden;
+   
+}
+
+.card.has-collapse .card-collapse-panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease-in-out, padding 0.25s ease-in-out;
+    padding: 0 1rem;
+}
+
+.card.has-collapse .card-collapse-panel.expanded {
+    max-height: 800px;
+    opacity: 1;
+    padding: 1rem;
+}
+
+/* Collapse 토글 버튼 */
+.card.has-collapse .collapse-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card.has-collapse .collapse-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+/* ------------------------------------------------------------
+   Filter 카드
+   - 필터 버튼 클릭 시 메뉴가 오른쪽에서 슬라이드되어 표시
+------------------------------------------------------------ */
+.card.has-filter {
+    position: relative;
+}
+
+.card.has-filter .filter-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary);
+    border: none;
+    color: #fff;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.card.has-filter .filter-toggle:hover {
+    filter: brightness(0.9);
+
+}
+
+/* 슬라이드 메뉴 */
+.card.has-filter .filter-menu {
+    position: absolute;
+    top: 0;
+    right: -260px; /* 숨김 상태 */
+    width: 240px;
+    height: 100%;
+    background: #fff;
+    border-left: 1px solid #dee2e6;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    z-index: 9998;
+    padding: 1rem;
+    transition: right 0.35s ease-in-out;
+}
+
+.card.has-filter.filter-open .filter-menu {
+    right: 0; /* 열릴 때 오른쪽에서 슬라이드 */
+}
+
+/* ------------------------------------------------------------
+   icon 카드
+   - 필터 버튼 클릭 시 메뉴가 오른쪽에서 슬라이드되어 표시
+------------------------------------------------------------ */
+.card.has-icon .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .card.has-icon .card-header .icon {
+        font-size: 1.5rem;
+        opacity: 0.85;
+    }
+
+/* Blazorise 차트 설정 --------------------------------------------------- */
+.chart-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch; /* 기존 center → stretch */
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.15rem 1.75rem rgba(58, 59, 69, 0.15);
+    transition: all 0.3s ease-in-out;
+    overflow: visible; /*내부영역을 채우도록 수정*/
+}
+
+/* Small Chart: Compact for Dashboard Widgets */
+.chart-small {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+/* Medium Chart: Balanced Default View */
+.chart-medium {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.chart-large {
+    width: 100%;
+    max-width: 600px;
+    height: 460px;
+}
+/* 🟥 Wide Chart: Full Container Width */
+.chart-wide {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.chart-wide-half {
+    width: 100%;
+    max-width: 1200px;
+    height: 225px;
+    margin: 0 auto;
+}
+/* Chart.js canvas should always fill container area */
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    /* object-fit: contain;*/
+    display: block; /* 블록화로 여백 제거 */
+}
+
+/* Fix Chart Legend overlap / clipping issue */
+.chart-container .chartjs-size-monitor,
+.chart-container .chartjs-render-monitor {
+    overflow: visible !important;
+}
+
+/* Legend alignment improvements */
+.chart-container .chartjs-legend {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* 반응형 보조 --------------------------------------------- */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    .card.has-filter .filter-menu {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .chart-wide,
+    .chart-wide-half,
+    .chart-medium {
+        max-width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .chart-small {
+        max-width: 100%;
+        height: auto;
+        min-height: 200px;
+    }
+}

@@ -1,0 +1,98 @@
+﻿@rendermode InteractiveServer
+
+<div class="@CardCss" style="max-width:@MaxWidth; max-height:@MaxHeight;">
+    <div class="card-header text-white text-center position-relative" 
+         style="background-color:@HeaderColor;">
+
+        @if (!string.IsNullOrEmpty(HeaderTitle))
+        {
+            <h6 class="m-0">@HeaderTitle</h6>
+        }
+
+        <!-- 오른쪽 드롭다운 버튼 -->
+        @if (Type == CardTypes.DropDown && DropDownItems is not null)
+        {
+            @DropDownButton()
+        }
+
+
+        <!-- Collapse 토글 -->
+        @if (Type == CardTypes.Collapse)
+        {
+            <button class="btn btn-sm btn-outline-light text-dark"
+                    style="position:absolute; right:10px; top:50%; transform:translateY(-50%);"
+                    @onclick="ToggleCollapse">
+                    <i class="fas @(IsCollapsed ? "fa-chevron-down" : "fa-chevron-up")"></i>
+            </button>
+        }
+
+        <!--  Filter 토글 -->
+        @if (Type == CardTypes.Filter)
+        {
+            <button class="filter-toggle" @onclick="ToggleFilter">
+                <i class="fas fa-filter"></i>
+            </button>
+        }
+     
+    </div>
+
+    <div class="card-body text-center">
+        @if (IsLoading)
+        {
+            <div class="d-flex justify-content-center align-items-center" style="height:200px;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        else
+        {
+            @switch (Type)
+            {
+                case CardTypes.Basic:
+                    @BasicCard()
+                    break;
+
+                case CardTypes.Image:
+                    @ImageCard()
+                    break;
+
+                case CardTypes.Stats:
+                    @StatsCard()
+                    break;
+
+                case CardTypes.List:
+                    @ListCard()
+                    break;
+
+                case CardTypes.Loading:
+                    @LoadingCard()
+                    break;
+
+                case CardTypes.Icon:
+                    @IconCard()
+                    break;
+
+                case CardTypes.Chart:
+                    @ChildContent
+                    break;
+
+                case CardTypes.DropDown:
+                    @DropDownCard()
+                    break;
+
+                case CardTypes.Collapse:
+                    @CollapseCard()
+                    break;
+
+                case CardTypes.Filter:
+                    @FilterCard()
+                    break;
+
+                default:
+                    @ChildContent
+                    break;
+            }
+        }
+    </div>
+</div>

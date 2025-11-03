@@ -1,0 +1,18 @@
+{
+  "MainTitle": "Sb Admin2 Demo",
+  "MainTagline": "A Bootstrap 5 template for Sb Admin2",
+  "MainDescription": "이 데모프로젝트는 blazer 웹앱 .Net8.0 기반 서버 프로젝트로 만들어졌습니다.",
+  "FooterCopyright": "© 2025 Sb Admin2",
+
+
+  "Charts": {
+    "Title": "Blazorise Chart",
+    "Description": "이페이지는 java 대신 Blazorise Chart로 변경하여 샘플데이터는 C# 코드비하인드로 처리합니다."
+  },
+
+  "Cards": {
+    "Title": "Blazorise Card",
+    "Description": "이페이지는 Card 타입별 사용 예를 보여주는 페이지 입니다."
+  }
+
+}
