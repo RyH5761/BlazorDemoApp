@@ -1,0 +1,17 @@
+﻿@rendermode InteractiveServer
+
+<div class="chart-container @ChartClass" style="width:100%; height:@Height;">
+    @if (isReady)
+    {
+        @RenderChart()
+    }
+    else
+    {
+        <div class="text-muted py-4">
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading chart...</p>
+        </div>
+    }
+</div>

@@ -1,0 +1,161 @@
+﻿@page "/cards"
+@inject BlazorDemoApp.Admin.Models.AppContextData App
+@rendermode InteractiveServer
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">@App.Common.Cards.Title</h1>
+    <p class="mb-4">
+        @App.Common.Cards.Description
+    </p>
+
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Earnings (Monthly)
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Earnings (Annual) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Earnings (Annual)
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tasks Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Tasks
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                             style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Pending Requests
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Basic" HeaderTitle="기본 카드" Content="이건 기본 카드입니다."/>
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Image"
+                  HeaderTitle="이미지 카드"
+                  ImageSrc="img/blazor.svg"
+                  Title="작은 이미지"
+                  Description="Small Size"/>
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Stats"
+                  HeaderTitle="통계 카드"
+                  Title="오늘 방문자"
+                  Value="1,253명"
+                  SubText="어제보다 +12%"/>
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.List"
+                    HeaderTitle="리스트 형태 카드"
+                    Items="@TodoList"/>
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Loading" HeaderTitle="로딩 카드" IsLoading="true"/>
+        </div>
+
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Icon"
+                    HeaderTitle="아이콘 카드"
+                    Title="Earnings (Monthly)"
+                    Value="$40,000"
+                    Icon="fas fa-calendar" />
+        </div>
+
+
+        <div class="col-md-4">
+            <UiCard Type                ="CardTypes.DropDown"
+                    HeaderTitle         ="드롭다운 카드"
+                    DropDownItems       ="@PeriodOptions"
+                    @bind-SelectedItem  ="SelectedPeriod" />
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Collapse" HeaderTitle="Collapse 카드">
+                <p>이 영역은 접었다 펼칠 수 있습니다.</p>
+            </UiCard>
+        </div>
+
+        <div class="col-md-4">
+            <UiCard Type="CardTypes.Filter" HeaderTitle="Filter 카드">
+                <p>필터 적용 전의 카드 내용</p>
+            </UiCard>
+        </div>
+    </div>
+
+</div>
+

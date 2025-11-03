@@ -1,0 +1,107 @@
+﻿@page "/charts"
+@inject BlazorDemoApp.Admin.Models.AppContextData App
+@rendermode InteractiveServer
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">@App.Common.Charts.Title</h1>
+<p class="mb-4">
+    @App.Common.Charts.Description
+</p>
+
+@*  @if (IsLoading)
+ {
+        <div class="text-center p-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-3">Loading data...</p>
+        </div>
+}
+else if (App.ChartCommon is not null)
+{ *@
+    <button class="btn btn-outline-primary mb-3" @onclick="RefreshAllCharts">
+        🔄️ 전체 차트 리프레쉬
+    </button>
+    
+        @*1열 전체 라인 차트 배치*@
+        <div class="row">
+            <div class="col-md-12 mb-2 order-0">
+            <UiCard Type="CardTypes.Chart" HeaderTitle="📈 Monthly Sales">
+                    <UiChart ChartType=ChartTypes.Line
+                            ChartClass="chart-wide"
+                            HeaderColor="#4e73df"
+                            ChartData="@App.ChartCommon.Sales"
+                            Height="400px"
+                            @ref="chart1" />
+                </UiCard>
+            </div>
+        </div>
+        @*2열 2 차트 배치*@
+        <div class="row">
+            <div class="col-md-6 mb-4 order-0">
+            <UiCard Type="CardTypes.Chart" HeaderTitle =" 🥧 Market Share">
+                    <UiChart ChartType=ChartTypes.Pie
+                            ChartClass="chart-large"
+                            HeaderColor="#1cc88a"
+                            ChartData="@App.ChartCommon.Market"
+                            Height="400px"
+                            @ref="chart2" />
+                </UiCard>
+            </div>
+            <div class="col-md-6 mb-4 order-1">
+            <UiCard Type="CardTypes.Chart" HeaderTitle="💸 Expense Breakdown">
+                    <UiChart ChartType=ChartTypes.Doughnut
+                            ChartClass="chart-large"
+                            HeaderColor="#f6c23e"
+                            ChartData="@App.ChartCommon.Expense"
+                        Height="400px"
+                            @ref="chart3" />
+                </UiCard>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-lg-4 mb-4 order-0">
+            <UiCard Type="CardTypes.Chart" HeaderTitle="🏢 Quarterly Revenue">
+                    <UiChart ChartType=ChartTypes.Bar
+                        ChartClass="chart-medium"
+                            HeaderColor="#36b9cc"
+                            ChartData="@App.ChartCommon.Bar"
+                            Height="400px"
+                            @ref="chart4" />
+                </UiCard>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 order-1">
+            <UiCard Type="CardTypes.Chart" HeaderTitle="🧭 Skill Radar">
+                    <UiChart ChartType=ChartTypes.Radar
+                        ChartClass="chart-medium"
+                            HeaderColor="#e74a3b"
+                            ChartData="@App.ChartCommon.Radar"
+                            Height="400px"
+                            @ref="chart5" />
+                </UiCard>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 order-2">
+            <UiCard Type="CardTypes.Chart" HeaderTitle="🧊 Regional Distribution">
+                    <UiChart ChartType=ChartTypes.Polar
+                        chartClass="chart-medium"
+                            HeaderColor="#20c997"
+                            ChartData="@App.ChartCommon.Polar"
+                            Height="400px"
+                            @ref="chart6" />
+                </UiCard>
+            </div>
+        </div>
+@* }
+else
+{
+    <div class="text-center text-danger mt-5">
+        ⁉️ 차트 데이터를 불러오지 못했습니다.
+    </div>
+} *@
+
+
+
+
+
+

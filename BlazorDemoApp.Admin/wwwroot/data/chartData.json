@@ -1,0 +1,32 @@
+{
+  "Sales": {
+             
+             "Labels": [ "Jan", "Feb", "Mar", "Apr", "May", "Jun" ],
+             "Values": [ 12000, 15000, 13000, 18000, 22000, 19000 ]
+  },
+  "Market": {
+             
+              "Labels": [ "Direct", "Social", "Referral", "Organic" ],
+              "Values": [ 55, 25, 20, 10 ]
+  },
+  "Expense": {
+              
+              "Labels": [ "Marketing", "Operations", "R&D", "Support" ],
+              "Values": [ 35, 25, 20, 20 ]
+  },
+  "Bar": {
+             
+              "Labels": [ "Q1", "Q2", "Q3", "Q4" ],
+              "Values": [ 50000, 62000, 71000, 83000 ]
+  },
+  "Radar": {
+              
+              "Labels": [ "Design", "Development", "Testing", "Deployment", "Support" ],
+              "Values": [ 70, 85, 60, 75, 50 ]
+  },
+  "Polar": {
+             
+              "Labels": [ "North", "South", "East", "West" ],
+              "Values": [ 11, 16, 7, 14 ]
+  }
+}

@@ -4,4 +4,13 @@
 2.Moden Modern Busines Template html 파일 BlazorDemoApp 프로젝트에 적용 및 삭제처리 <br />
 3.Home 페이지에 대한 이미지 및 간략 내용 추가, 공통요소는 json파일에 저장 및 연동 코드 추가 <br />
 4.About 페이지에 대한 이미지 및 간략 내용 추가 <br />
-5.
+5.sb-admin-2 템플릿 다운로드 및 wwwroot 적용 <br />
+6.sb-admin-2 템플릿 html 파일 BlazorDemoApp 프로젝트에 적용 및 삭제처리 <br />
+7.대시보드 페이지에 대한 이미지 및 간략 내용 추가, 공통요소는 json파일에 저장 및 연동 코드 추가 <br />
+8.Blazor 컴포넌트 기반으로 Chart 페이지 구성 <br />
+9.Blazor 컴포넌트 기반으로 Chard 페이지 구성 <br />
+10.공통 UiCard 컴포넌트 생성 및 재사용 <br />
+11.공통 UiChart 컴포넌트 생성 및 재사용 <br />
+12.나머지 페이지별 html 파일 BlazorDemoApp 프로젝트에 적용 및 삭제처리 <br />
+13.대쉬보드 chart 컴포넌트 적용 <br />
+14.
